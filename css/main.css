@@ -1,0 +1,135 @@
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #218325;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #175c19;
+}
+
+hr {
+  width: 50%;
+  border-top: 1px solid #FFFFFF;
+}
+
+p {
+  font-size: 20px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  color: #FFFFFF;
+  font-size: 20px;
+}
+
+table {
+  border-radius: 10px;
+  background-color: #419C44;
+}
+
+th {
+  width: 1200px;
+}
+
+th:hover {
+  background-color: #1a3e1b;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+.indexheader {
+  font-size: 40px;
+  font-size: calc(100% + 1vw);
+}
+
+.navbar {
+  padding: 0;
+}
+
+.tablecontainer {
+  width: 100%;
+  min-height: 100px;
+  height: 100%;
+  max-height: 1000px;
+  overflow: auto;
+  display: inline-block;
+}
+
+.nav-link {
+  padding: 15px 20px !important;
+}
+
+.content {
+  background-color: #419C44;
+  border-radius: 25px;
+  border: 2px solid #FFFFFF;
+  padding: 20px;
+}
+
+.img-thumbnail {
+  width: 400px;
+  height: 200px;
+  text
+}
+
+.names {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.center {
+  margin: auto;
+  overflow: auto;
+}
+
+a.nav-item {
+  font-size: 18px;
+}
+
+a.current {
+  color: #4B5662;
+  background-color: #E5E9F2;
+}
+
+a.inactive {
+  color: #4B5662;
+  background-color: #FFFFFF;
+}
+
+a.inactive:hover {
+  background-color: #EEF1F7;
+}
+
+#topbar {
+  background-color: #218325;
+}
+
+#gobutton {
+  border-color: #218325;
+  color: #218325;
+  background-color: #FFFFFF;
+}
+
+#gobutton:hover {
+  color: #FFFFFF;
+  background-color: #218325;
+}
