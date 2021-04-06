@@ -37,8 +37,30 @@
     <div class="content d-flex flex-column align-content-around h-100 justify-content-center" style="width: 60%;">
       <div class="text-container">
         <h2 class="text-white">Apogee Stadium</h2>
-        <p class="text-white">Apogee Stadium is the home of Mean Green football and the centerpiece of the Mean Green Athletic Village. The stadium seats 30,850 in a horseshoe-shaped bowl. Apogee Stadium is the first newly-constructed college football stadium in the nation to be awarded a LEED Platinum Certification, the highest level of Leadership in Energy and Environmental Design status.</p>
-        <button class="btn btn-light float-right" type="button" name="edit">Edit</button>
+        <p class="text-white" id="Desc">Apogee Stadium is the home of Mean Green football and the centerpiece of the Mean Green Athletic Village. The stadium seats 30,850 in a horseshoe-shaped bowl. Apogee Stadium is the first newly-constructed college football stadium in the nation to be awarded a LEED Platinum Certification, the highest level of Leadership in Energy and Environmental Design status.</p>
+        <button class="btn btn-light float-right" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
+        <div class="modal fade" id="editDescription" tabindex="-1" role="dialog" aria-labelledby="editDescriptionLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Edit Description</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Apogee Stadium</label>
+                  <textarea class="form-control" id="newDesc" rows="10">Apogee Stadium is the home of Mean Green football and the centerpiece of the Mean Green Athletic Village. The stadium seats 30,850 in a horseshoe-shaped bowl. Apogee Stadium is the first newly-constructed college football stadium in the nation to be awarded a LEED Platinum Certification, the highest level of Leadership in Energy and Environmental Design status.</textarea>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeDesc">Close</button>
+                <button type="button" class="btn changebtn" onclick="changeDesc()">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="content d-flex flex-column h-100" style="width:35%">
@@ -97,6 +119,12 @@
 </div>
 
 
+<script>
+function changeDesc() {
+  document.getElementById("Desc").innerHTML = document.getElementById("newDesc").value;
+  document.getElementById("closeDesc").click();
+}
+</script>
 <script src="js/jquery.slim.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
