@@ -116,17 +116,6 @@ td:hover {
   overflow: auto;
 }
 
-.changebtn {
-  border-color: #218325;
-  color: #218325;
-  background-color: #FFFFFF;
-}
-
-.changebtn:hover {
-  color: #FFFFFF;
-  background-color: #218325;
-}
-
 a.nav-item {
   font-size: 18px;
 }
@@ -156,6 +145,17 @@ a.inactive:hover {
 }
 
 #gobutton:hover {
+  color: #FFFFFF;
+  background-color: #218325;
+}
+
+#changebtn {
+  border-color: #218325;
+  color: #218325;
+  background-color: #FFFFFF;
+}
+
+#changebtn:hover {
   color: #FFFFFF;
   background-color: #218325;
 }
