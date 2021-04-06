@@ -51,6 +51,10 @@ th:hover {
   background-color: #1a3e1b;
 }
 
+td:hover {
+  background-color: #1a3e1b;
+}
+
 .logo {
   width: 100px;
   height: 100px;
@@ -83,6 +87,11 @@ th:hover {
   border-radius: 25px;
   border: 2px solid #FFFFFF;
   padding: 20px;
+}
+
+.text-container {
+  overflow: auto;
+  margin: 3px;
 }
 
 .img-thumbnail {
