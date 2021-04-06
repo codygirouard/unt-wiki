@@ -51,6 +51,11 @@ th:hover {
   background-color: #1a3e1b;
 }
 
+td:nth-of-type(2) {
+  border-left: 2px solid white;
+  text-align: center;
+}
+
 td:hover {
   background-color: #1a3e1b;
 }
