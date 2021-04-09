@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>Union Circle Parking Garage - GMG Wiki</title>
+  <link rel="shortcut icon" type="image/png" href="images/favicon2.png";>
+</head>
+<body style="background-color: #A2EAA4;">
+
+
+<div class="container-fluid d-flex flex-column px-0 vh-100">
+  <div class="d-flex justify-content-between " id="topbar">
+    <a href="index.html"><img class="item logo p-3" src="images/logo.png" alt="Eagle logo for go mean green"></a>
+    <div class="item mb-1 text-white align-self-center display-4">Go Mean Green Wiki</div>
+    <a href="#"><img class="item logo p-3" src="images/pfp.png" alt="Profile picture"></a>
+  </div>
+
+  <nav class="navbar navbar-expand-md sticky-top bg-white">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link inactive" href="index.html">Home</a>
+      <a class="nav-item nav-link inactive" href="browse.html">Browse</a>
+      <a class="nav-item nav-link inactive" href="popular.html">Popular</a>
+      <a class="nav-item nav-link inactive" href="about.html">About</a>
+    </div>
+    <form class="form-inline ml-auto mr-3">
+      <input class="form-control mr-2" type="text" placeholder="Search">
+      <button class="btn" type="submit" id="gobutton">Go</button>
+    </form>
+  </nav>
+
+  <div class="container d-flex align-items-center justify-content-between mt-4" style="height: 80%">
+    <div class="content d-flex flex-column align-content-around h-100 justify-content-center" style="width: 60%;">
+      <div class="text-container">
+        <h2 class="text-white">Union Circle Parking Garage</h2>
+        <p class="text-white" id="Desc">The Union Circle Garage is located immediately adjacent to the east side of the building with access from Union Circle. This garage offers hourly spaces, including accessible parking. It is a credit card only garage. A passenger drop-off loop is located on Union Circle in front of the UNT Union entrance.</p>
+        <button class="btn btn-light float-right" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
+        <div class="modal fade" id="editDescription" tabindex="-1" role="dialog" aria-labelledby="editDescriptionLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Edit Description</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Union Circle Parking Garage</label>
+                  <textarea class="form-control" id="newDesc" rows="10">The Union Circle Garage is located immediately adjacent to the east side of the building with access from Union Circle. This garage offers hourly spaces, including accessible parking. It is a credit card only garage. A passenger drop-off loop is located on Union Circle in front of the UNT Union entrance.</textarea>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeDesc">Close</button>
+                <button type="button" class="btn" id="changebtn" onclick="changeDesc()">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content d-flex flex-column h-100" style="width:35%">
+      <div class="text-container text-white text-center">
+        <h2>Information</h2>
+        <hr>
+        <p>Adress: 350 S. Welch St.</p>
+        <p>Hours of Operation: Open 24/7</p>
+        <p>Printers: None</p>
+        <p>Tutoring: No</p>
+        <p>Primary Use: Parking</p>
+        <p>Academic Department: None</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container d-flex justify-content-between mt-4" style="height: 80%">
+    <div class="content d-flex flex-column justify-content-center align-content-around" style="width: 60%;">
+      <h2 class="text-white text-center m-0">Images</h2>
+      <hr>
+      <div style="overflow-y: auto; overflow-x: hidden;">
+        <div class="row">
+          <section class="col-md-5 col-12 offset-sm-1"><img class="img-thumbnail" src="images/unt1.jpg" alt="Image of UNT Union"></section>
+          <section class="col-md-5 col-12"><img class="img-thumbnail" src="images/unt2.jpg" alt="Image of UNT"></section>
+        </div>
+        <div class="row mt-3">
+          <section class="col-md-5 offset-sm-1 col-12"><img class="img-thumbnail" src="images/unt3.jpg" alt="Image between student services and library"></section>
+          <section class="col-md-5 col-12"><img class="img-thumbnail" src="images/unt4.jpg" alt="Image of UNT Discovery Park"></section>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column justify-content-between h-100" style="width:35%">
+      <div class="content" style="height:47%;">
+        <div class="text-container text-white text-center h-100">
+          <h2>Parking Lots Nearby</h2>
+          <hr>
+          <p>It's a Parking Garage</p>
+        </div>
+      </div>
+      <div class="content" style="height:47%;">
+        <div class="text-container text-white text-center h-100">
+          <h2>Special Events</h2>
+          <hr>
+          <p>None</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+function changeDesc() {
+  document.getElementById("Desc").innerHTML = document.getElementById("newDesc").value;
+  document.getElementById("closeDesc").click();
+}
+</script>
+<script src="js/jquery.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
