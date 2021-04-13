@@ -38,7 +38,8 @@
       <div class="text-container">
         <h2 class="text-white">Athletic Center Building</h2>
         <p class="text-white" id="Desc">Located at the epicenter of the Mean Green Village, the North Texas Athletic Center is a 45,000-square foot facility that is home to all departments of athletics. It marked a dedication to collegiate athletics such as has never existed at North Texas, bringing to fruition not just a stadium befitting a major-college football program but also modern facilities for all student-athletes, especially in women's sports.</p>
-        <button class="btn btn-light float-right" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
+        <button class="btn btn-light float-right py-1 px-1" type="button" name="like" onclick="likePage()"><img class="img-fluid" style="max-width: 100%; height: 29px;" src="images/heart_empty.png" alt="Green outline heart" id="likebutton"></button>
+<button class="btn btn-light float-right mr-2" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
         <div class="modal fade" id="editDescription" tabindex="-1" role="dialog" aria-labelledby="editDescriptionLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -133,6 +134,11 @@ function changeDesc() {
 }
 
 function likePage() {
+  if (document.getElementById("likebutton").getAttribute('src') === "images/heart_full.png") {
+    return;
+  }
+  document.getElementById("likebutton").src = "images/heart_full.png";
+
 	const Http = new XMLHttpRequest();
 	const url='https://a5wfjnt2l1.execute-api.us-east-2.amazonaws.com/test/parkingLotGirouardWrite?buildingid=5';
 

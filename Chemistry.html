@@ -38,7 +38,8 @@
       <div class="text-container">
         <h2 class="text-white">Chemistry Building</h2>
         <p class="text-white" id="Desc">The Chemistry Building is home to the College of Science's Department of Chemistry. This Department is the home of one of the largest computational chemistry groups in the country. This building hosts many varieties of chemistry such as Forensic Science, Organic Chemistry, and Material Chemistry.</p>
-        <button class="btn btn-light float-right" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
+        <button class="btn btn-light float-right py-1 px-1" type="button" name="like" onclick="likePage()"><img class="img-fluid" style="max-width: 100%; height: 29px;" src="images/heart_empty.png" alt="Green outline heart" id="likebutton"></button>
+<button class="btn btn-light float-right mr-2" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
         <div class="modal fade" id="editDescription" tabindex="-1" role="dialog" aria-labelledby="editDescriptionLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -133,6 +134,11 @@ function changeDesc() {
 }
 
 function likePage() {
+  if (document.getElementById("likebutton").getAttribute('src') === "images/heart_full.png") {
+    return;
+  }
+  document.getElementById("likebutton").src = "images/heart_full.png";
+
 	const Http = new XMLHttpRequest();
 	const url='https://a5wfjnt2l1.execute-api.us-east-2.amazonaws.com/test/parkingLotGirouardWrite?buildingid=10';
 
