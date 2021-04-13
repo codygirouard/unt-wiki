@@ -38,7 +38,8 @@
       <div class="text-container">
         <h2 class="text-white">Curry Hall</h2>
         <p class="text-white" id="Desc">Named after Dr. O.J. Curry, the first dean of the College of Business Administration, Curry Hall is now home to many different departments. This building is mainly used as a study hall with few rooms for lectures although most of the lectures that happen in this building are for the Department of History.</p>
-        <button class="btn btn-light float-right" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
+        <button class="btn btn-light float-right py-1 px-1" type="button" name="like" onclick="likePage()"><img class="img-fluid" style="max-width: 100%; height: 29px;" src="images/heart_empty.png" alt="Green outline heart" id="likebutton"></button>
+<button class="btn btn-light float-right mr-2" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
         <div class="modal fade" id="editDescription" tabindex="-1" role="dialog" aria-labelledby="editDescriptionLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -124,6 +125,11 @@ function changeDesc() {
 }
 
 function likePage() {
+  if (document.getElementById("likebutton").getAttribute('src') === "images/heart_full.png") {
+return;
+}
+document.getElementById("likebutton").src = "images/heart_full.png";
+
 	const Http = new XMLHttpRequest();
 	const url='https://a5wfjnt2l1.execute-api.us-east-2.amazonaws.com/test/parkingLotGirouardWrite?buildingid=17';
 
