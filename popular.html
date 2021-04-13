@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="widtd=device-widtd, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-widtd, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <title>Popular - GMG Wiki</title>
   <link rel="shortcut icon" type="image/png" href="images/favicon2.png";>
 </head>
-<body style="background-color: #A2EAA4;">
+<body style="background-color: #A2EAA4;" onload="updateTablesLikes();">
 
 
 <div class="container-fluid d-flex flex-column px-0 vh-100">
@@ -37,7 +38,7 @@
     <div class="content w-100 d-flex flex-column align-content-around" style="height: 85%;">
       <h2 class="text-white">Most Popular Buildings</h2>
       <div class="tablecontainer">
-        <table class="table table-striped table-responsive text-white">
+        <table class="table table-striped table-responsive text-white" id="popularTable">
           <tr><th scope="col">Building</th><th scope="col" class="text-center">Likes</th></tr>
           <tr><td style="width: 90%">AFROTC Building</td><td>30</td></tr>
           <tr><td>Alumni Pavilion</td><td>29</td></tr>
@@ -114,7 +115,72 @@
 
 
 
+<script type="text/javascript">
+AWS.config.update({
+  region: "us-east-2",
+  // The endpoint should point to the local or remote computer where DynamoDB (downloadable) is running.
+  endpoint: 'dynamodb.us-east-2.amazonaws.com',
+  /*
+    accessKeyId and secretAccessKey defaults can be used while using the downloadable version of DynamoDB.
+    For security reasons, do not store AWS Credentials in your files. Use Amazon Cognito instead.
+  */
+  accessKeyId: "AKIAVNP5PKK56F574E76",
+  secretAccessKey: "ccFqb9Zt3cZlsTBcjYuyTLxxS62QfWi5QJ41l4LR"
+});
 
+var dynamodb = new AWS.DynamoDB();
+var docClient = new AWS.DynamoDB.DocumentClient();
+
+
+function updateTablesLikes() {
+  var client = new HttpClient();
+  client.get('https://a5wfjnt2l1.execute-api.us-east-2.amazonaws.com/test/girouard', function(response) {
+    var res = response.split(" ");
+    var table, rows, i;
+    table = document.getElementById("popularTable");
+    rows = table.rows;
+    for (i = 1; i < rows.length; i++) {
+      rows[i].getElementsByTagName("TD")[1].innerHTML = res[i-1]
+    }
+  });
+}
+
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("popularTable");
+  switching = true;
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      y = rows[i].getElementsByTagName("TD")[1];
+      x = rows[i + 1].getElementsByTagName("TD")[1];
+      if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() {
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, true );
+        anHttpRequest.send( null );
+    }
+}
+</script>
 <script src="js/jquery.slim.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
