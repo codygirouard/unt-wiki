@@ -128,10 +128,6 @@ AWS.config.update({
   secretAccessKey: "ccFqb9Zt3cZlsTBcjYuyTLxxS62QfWi5QJ41l4LR"
 });
 
-var dynamodb = new AWS.DynamoDB();
-var docClient = new AWS.DynamoDB.DocumentClient();
-
-
 function updateTablesLikes() {
   var client = new HttpClient();
   client.get('https://a5wfjnt2l1.execute-api.us-east-2.amazonaws.com/test/girouard', function(response) {
