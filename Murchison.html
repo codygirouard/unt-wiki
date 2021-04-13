@@ -40,7 +40,8 @@
                     <p class="text-white" id="Desc">
                         The Murchison Performing Arts Center (MPAC) is the premiere performance facility of the prestigious University of North Texas College of Music. The award-winning facility features two world-class performance venues: The Margot and Bill Winspear Performance Hall and the Lyric Theatre, as well as the Brock Grand Lobby and several studio and rehearsal spaces.
                     </p>
-                    <button class="btn btn-light float-right" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
+                    <button class="btn btn-light float-right py-1 px-1" type="button" name="like" onclick="likePage()"><img class="img-fluid" style="max-width: 100%; height: 29px;" src="images/heart_empty.png" alt="Green outline heart" id="likebutton"></button>
+<button class="btn btn-light float-right mr-2" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
                     <div class="modal fade" id="editDescription" tabindex="-1" role="dialog" aria-labelledby="editDescriptionLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -137,7 +138,12 @@ function changeDesc() {
 }
 
 function likePage() {
-	const Http = new XMLHttpRequest();
+	if (document.getElementById("likebutton").getAttribute('src') === "images/heart_full.png") {
+return;
+}
+document.getElementById("likebutton").src = "images/heart_full.png";
+
+const Http = new XMLHttpRequest();
 	const url='https://a5wfjnt2l1.execute-api.us-east-2.amazonaws.com/test/parkingLotGirouardWrite?buildingid=43';
 
 	Http.open("GET", url);
