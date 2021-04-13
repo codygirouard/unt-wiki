@@ -10,7 +10,7 @@
   <title>Popular - GMG Wiki</title>
   <link rel="shortcut icon" type="image/png" href="images/favicon2.png";>
 </head>
-<body style="background-color: #A2EAA4;">
+<body style="background-color: #A2EAA4;" onload="sortTable();">
 
 
 <div class="container-fluid d-flex flex-column px-0 vh-100">
@@ -37,7 +37,7 @@
     <div class="content w-100 d-flex flex-column align-content-around" style="height: 85%;">
       <h2 class="text-white">Most Popular Buildings</h2>
       <div class="tablecontainer">
-        <table class="table table-striped table-responsive text-white">
+        <table class="table table-striped table-responsive text-white" id="popularTable">
           <tr><th scope="col">Building</th><th scope="col" class="text-center">Likes</th></tr>
           <tr><td style="width: 90%">AFROTC Building</td><td>30</td></tr>
           <tr><td>Alumni Pavilion</td><td>29</td></tr>
@@ -114,7 +114,30 @@
 
 
 
-
+<script>
+function sortTable() {
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("popularTable");
+  switching = true;
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      y = rows[i].getElementsByTagName("TD")[1];
+      x = rows[i + 1].getElementsByTagName("TD")[1];
+      if (parseInt(x.innerHTML) > parseInt(y.innerHTML)) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+</script>
 <script src="js/jquery.slim.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
