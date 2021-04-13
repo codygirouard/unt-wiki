@@ -95,7 +95,7 @@ td:hover {
 }
 
 .text-container {
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
   margin: 3px;
 }
