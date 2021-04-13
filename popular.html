@@ -135,13 +135,14 @@ var docClient = new AWS.DynamoDB.DocumentClient();
 function updateTablesLikes() {
   var client = new HttpClient();
   client.get('https://a5wfjnt2l1.execute-api.us-east-2.amazonaws.com/test/girouard', function(response) {
-    var res = response.split(" ");
+    var res = response.substring(12, response.length - 2).split(" ");
     var table, rows, i;
     table = document.getElementById("popularTable");
     rows = table.rows;
     for (i = 1; i < rows.length; i++) {
       rows[i].getElementsByTagName("TD")[1].innerHTML = res[i-1]
     }
+    sortTable();
   });
 }
 
