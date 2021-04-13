@@ -133,6 +133,14 @@ function changeDesc() {
   document.getElementById("Desc").innerHTML = document.getElementById("newDesc").value;
   document.getElementById("closeDesc").click();
 }
+
+function likePage() {
+	const Http = new XMLHttpRequest();
+	const url='https://a5wfjnt2l1.execute-api.us-east-2.amazonaws.com/test/parkingLotGirouardWrite?buildingid=47';
+
+	Http.open("GET", url);
+	Http.send();
+}
     </script>
     <script src="js/jquery.slim.min.js"></script>
     <script src="js/popper.min.js"></script>

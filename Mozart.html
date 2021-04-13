@@ -38,7 +38,7 @@
                 <div class="text-container">
                     <h2 class="text-white">Mozart Square Hall</h2>
                     <p class="text-white" id="Desc">
-                        Mozart Square is located at the main entrance of the University of North Texas, on the corner of North Texas Boulevard and Eagle Drive. Mozart Square offers private single occupancy to upperclassmen residents and a double room option for freshmen. Mozart is home to UNT’s men’s and women’s basketball teams and women's soccer.
+                        Mozart Square is located at the main entrance of the University of North Texas, on the corner of North Texas Boulevard and Eagle Drive. Mozart Square offers private single occupancy to upperclassmen residents and a double room option for freshmen. Mozart is home to UNTï¿½s menï¿½s and womenï¿½s basketball teams and women's soccer.
                     </p>
                     <button class="btn btn-light float-right" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
                     <div class="modal fade" id="editDescription" tabindex="-1" role="dialog" aria-labelledby="editDescriptionLabel" aria-hidden="true">
@@ -53,7 +53,7 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1">Mozart Square Hall</label>
-                                        <textarea class="form-control" id="newDesc" rows="10">Mozart Square is located at the main entrance of the University of North Texas, on the corner of North Texas Boulevard and Eagle Drive. Mozart Square offers private single occupancy to upperclassmen residents and a double room option for freshmen. Mozart is home to UNT’s men’s and women’s basketball teams and women's soccer. </textarea>
+                                        <textarea class="form-control" id="newDesc" rows="10">Mozart Square is located at the main entrance of the University of North Texas, on the corner of North Texas Boulevard and Eagle Drive. Mozart Square offers private single occupancy to upperclassmen residents and a double room option for freshmen. Mozart is home to UNTï¿½s menï¿½s and womenï¿½s basketball teams and women's soccer. </textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -132,6 +132,14 @@
 function changeDesc() {
   document.getElementById("Desc").innerHTML = document.getElementById("newDesc").value;
   document.getElementById("closeDesc").click();
+}
+
+function likePage() {
+	const Http = new XMLHttpRequest();
+	const url='https://a5wfjnt2l1.execute-api.us-east-2.amazonaws.com/test/parkingLotGirouardWrite?buildingid=42';
+
+	Http.open("GET", url);
+	Http.send();
 }
     </script>
     <script src="js/jquery.slim.min.js"></script>
