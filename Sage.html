@@ -40,7 +40,8 @@
                     <p class="text-white" id="Desc">
                         Sage Hall is home to the universitiy's New College which is focused on students who are returning or transferring into UNT. The building houses both lecturing rooms and counselor offices. In close proximity to the University Union, Sage Hall is a great spot to eat lunch or sit down and study in a quite enviornment. There is also a computer lab on the third floor of the building.
                     </p>
-                    <button class="btn btn-light float-right" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
+                    <button class="btn btn-light float-right py-1 px-1" type="button" name="like" onclick="likePage()"><img class="img-fluid" style="max-width: 100%; height: 29px;" src="images/heart_empty.png" alt="Green outline heart" id="likebutton"></button>
+<button class="btn btn-light float-right mr-2" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
                     <div class="modal fade" id="editDescription" tabindex="-1" role="dialog" aria-labelledby="editDescriptionLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -135,6 +136,11 @@ function changeDesc() {
 }
 
 function likePage() {
+	  if (document.getElementById("likebutton").getAttribute('src') === "images/heart_full.png") {
+    return;
+  }
+  document.getElementById("likebutton").src = "images/heart_full.png";
+
 	const Http = new XMLHttpRequest();
 	const url='https://a5wfjnt2l1.execute-api.us-east-2.amazonaws.com/test/parkingLotGirouardWrite?buildingid=51';
 

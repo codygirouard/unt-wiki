@@ -38,7 +38,8 @@
       <div class="text-container">
         <h2 class="text-white">Terrill Hall</h2>
         <p class="text-white" id="Desc">Located on the campus of the University of North Texas, in Terrill Hall at the southeast corner of Mulberry and Avenue C, Terrill Hall is home to the universitiy's Department of Psycology and their clinic. The Psychology Clinic is a non-profit clinic that serves as a supervised training facility for advanced Ph.D.-level student clinicians. The Clinic staff is comprised of teams of licensed psychologists and doctoral-level psychology students who provide therapy and psychological testing to adults, adolescents, children, couples and families.</p>
-        <button class="btn btn-light float-right" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
+        <button class="btn btn-light float-right py-1 px-1" type="button" name="like" onclick="likePage()"><img class="img-fluid" style="max-width: 100%; height: 29px;" src="images/heart_empty.png" alt="Green outline heart" id="likebutton"></button>
+<button class="btn btn-light float-right mr-2" type="button" name="edit" data-toggle="modal" data-target="#editDescription">Edit</button>
         <div class="modal fade" id="editDescription" tabindex="-1" role="dialog" aria-labelledby="editDescriptionLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -124,6 +125,11 @@ function changeDesc() {
 }
 
 function likePage() {
+  if (document.getElementById("likebutton").getAttribute('src') === "images/heart_full.png") {
+    return;
+  }
+  document.getElementById("likebutton").src = "images/heart_full.png";
+
 	const Http = new XMLHttpRequest();
 	const url='https://a5wfjnt2l1.execute-api.us-east-2.amazonaws.com/test/parkingLotGirouardWrite?buildingid=56';
 
