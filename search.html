@@ -129,7 +129,7 @@ function filterTableBySearch() {
   table = document.getElementById("searchTable");
   rows = table.rows;
   for (i = (rows.length -1); i >= 0; i--) {
-    if (!rows[i].getElementsByTagName("TH")[0].innerHTML.toLowerCase().includes(search)) {
+    if (!rows[i].getElementsByTagName("TH")[0].innerHTML.toLowerCase().includes(search.toLowerCase())) {
       rows[i].remove();
     }
   }
