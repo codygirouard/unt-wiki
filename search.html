@@ -134,6 +134,13 @@ function filterTableBySearch() {
     }
   }
 
+  if (rows.length == 0) {
+    var row = table.insertRow(0);
+    var headerCell = document.createElement("TH");
+    headerCell.innerHTML = "No search results found";
+    row.appendChild(headerCell);
+  }
+
   document.title = `Search: ${ search } - GMG Wiki`
 }
 </script>
